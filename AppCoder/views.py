@@ -86,8 +86,8 @@ def busquedaComision(request):
     return render(request, 'Appcoder/busquedaComision.html')
 
 def buscar(request):
-    if request.GET['comision']:#pregunto si hay algo en comision
-        comi=request.GET['comision']#entrega el contenido de comision
+    if request.GET['comision']:#pregunto si hay algo en el get de comision
+        comi=request.GET['comision']#entrega el contenido de comision guardandolo en comi
         cursos = Curso.objects.filter(comision=comi) #busca en la base de cursos, donde la comision es igual a la comision del formulario, y guardalo en curso
         return render(request, 'AppCoder/resultadosBusqueda.html', {'cursos':cursos})
     else:
