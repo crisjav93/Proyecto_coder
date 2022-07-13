@@ -2,6 +2,7 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from .models import * #el asterisco trae todas las clases
 from AppCoder.forms import *
+#from django.http.request import QueryDict
 
 # Create your views here.
 
@@ -87,8 +88,16 @@ def busquedaComision(request):
 
 def buscar(request):
     if request.GET['comision']:#pregunto si hay algo en el get de comision
-        comi=request.GET['comision']#entrega el contenido de comision guardandolo en comi
+        comi= request.GET['comision']#entrega el contenido de comision guardandolo en comi
         cursos = Curso.objects.filter(comision=comi) #busca en la base de cursos, donde la comision es igual a la comision del formulario, y guardalo en curso
-        return render(request, 'AppCoder/resultadosBusqueda.html', {'cursos':cursos})
+        return render(request,'AppCoder/resultadosBusqueda.html', {'cursos':cursos})
     else:
         return render(request,'AppCoder/busquedaComision.html', {'error':'No se ingreso ninguna comision'})
+
+
+
+def leerprofesores(request):
+    profesores = profesores.objects.all()
+    cursos = Curso.objects.filter(comimmsion__icontains= comi )
+    
+

@@ -12,11 +12,11 @@
     {% if cursos %}
     
     <ul>
-        {% for curso in cursos %}
-            <li>{{ curso.nombre }}</li>
-            <li>{{ curso.comision }}</li>
-            <br>
-        {% endfor %}
+    {% for curso in cursos %}
+        <li>{{ curso.nombre }}</li>
+        <li>{{ curso.comision }}</li>
+    {% endfor %}
+    
     </ul>    
     {% else %}
         <p>No hay cursos con esa descripcion!!</p>
